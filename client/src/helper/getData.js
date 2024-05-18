@@ -27,7 +27,9 @@ export const getProductDetails = async (id) => {
 
 export const getUser = async (id) => {
   try {
-    const response = await axios.get(`${apiBase}/user-details/${id}`);
+    const response = await axios.get(`${apiBase}/user-details/${id}`, {
+      withCredentials: true,
+    });
     return response.data;
   } catch (error) {
     return handleError(error);
