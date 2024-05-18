@@ -2,7 +2,9 @@ import axios from "axios";
 
 export const getAllProucts = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/api/v1/products");
+    const response = await axios.get(
+      "https://px-01.onrender.com/api/v1/products"
+    );
     return response.data;
   } catch (error) {
     console.log(error);
@@ -11,7 +13,7 @@ export const getAllProucts = async () => {
 export const getProductDetails = async (id) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/product/${id}`
+      `https://px-01.onrender.com/api/v1/product/${id}`
     );
     return response.data;
   } catch (error) {
@@ -22,7 +24,7 @@ export const getProductDetails = async (id) => {
 export const getUser = async (id) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/user-details/${id}`,
+      `https://px-01.onrender.com/api/v1/user-details/${id}`,
       { withCredentials: true }
     );
     return response.data;
@@ -34,7 +36,7 @@ export const getUser = async (id) => {
 export const getMyOrders = async (id) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/user/orders/${id}`,
+      `https://px-01.onrender.com/api/v1/user/orders/${id}`,
       { withCredentials: true }
     );
     return response.data;
@@ -46,7 +48,7 @@ export const getMyOrders = async (id) => {
 export const getAllOrders = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/admin/orders`,
+      `https://px-01.onrender.com/api/v1/admin/orders`,
       { withCredentials: true }
     );
     return response.data;
@@ -57,7 +59,7 @@ export const getAllOrders = async () => {
 export const getAllUsers = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/admin/all-users`,
+      `https://px-01.onrender.com/api/v1/admin/all-users`,
       { withCredentials: true }
     );
     return response.data;
@@ -69,7 +71,7 @@ export const getAllUsers = async () => {
 export const getallSlider = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/admin/all-slider`,
+      `https://px-01.onrender.com/api/v1/admin/all-slider`,
       { withCredentials: true }
     );
     return response.data;
@@ -81,7 +83,7 @@ export const getallSlider = async () => {
 export const getallbanner = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/admin/all-banner`,
+      `https://px-01.onrender.com/api/v1/admin/all-banner`,
       { withCredentials: true }
     );
     return response.data;
@@ -93,7 +95,7 @@ export const getallbanner = async () => {
 export const getallTestimonial = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/admin/all-testimonal`,
+      `https://px-01.onrender.com/api/v1/admin/all-testimonal`,
       { withCredentials: true }
     );
     return response.data;
@@ -105,7 +107,7 @@ export const getallTestimonial = async () => {
 export const getAllCategory = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/admin/categories`,
+      `https://px-01.onrender.com/api/v1/admin/categories`,
       { withCredentials: true }
     );
     return response.data;
@@ -117,7 +119,7 @@ export const getAllCategory = async () => {
 export const getAllReviews = async (id) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/user/reviews/${id}`,
+      `https://px-01.onrender.com/api/v1/user/reviews/${id}`,
       { withCredentials: true }
     );
     return response.data;
@@ -129,7 +131,7 @@ export const getAllReviews = async (id) => {
 export const getMyTestimonials = async (id) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/user/all-testimonal/${id}`,
+      `https://px-01.onrender.com/api/v1/user/all-testimonal/${id}`,
       { withCredentials: true }
     );
     return response.data;
