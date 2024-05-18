@@ -15,14 +15,6 @@ cloudinary.config({
 //Connect to the database
 connectDb();
 
-const ___dirname = path.resolve();
-
-app.use(express.static(path.join(___dirname, "/client/build")));
-
-app.get("*", (req, res) =>
-  res.sendFile(path.resolve(___dirname, "client", "build", "index.html"))
-);
-
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
