@@ -3,7 +3,7 @@ const User = require("../models/User");
 const ErrorHandler = require("../utils/errorHandler");
 
 const isVerified = async (req, res, next) => {
-  console.log(req.cookies);
+  console.log("Cookies", req.cookies);
   const token = req.cookies.token_auth;
   console.log(token);
   if (!token) {
