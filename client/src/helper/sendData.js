@@ -3,7 +3,7 @@ import axios from "axios";
 export const register = async (user) => {
   try {
     const response = await axios.post(
-      "https://px-01.onrender.com/api/v1/register",
+      "https://px-01-1.onrender.com/api/v1/register",
       user
     );
     return response.data || response;
@@ -16,7 +16,7 @@ export const login = async (user) => {
   try {
     const config = { headers: { "Content-Type": "application/json" } };
     const response = await axios.post(
-      "https://px-01.onrender.com/api/v1/login",
+      "https://px-01-1.onrender.com/api/v1/login",
       user,
       { withCredentials: true }
     );
@@ -29,7 +29,7 @@ export const login = async (user) => {
 export const takeOrder = async (order) => {
   try {
     const response = await axios.post(
-      "https://px-01.onrender.com/api/v1/orders/new",
+      "https://px-01-1.onrender.com/api/v1/orders/new",
       order,
       { withCredentials: true }
     );
@@ -42,7 +42,7 @@ export const takeOrder = async (order) => {
 export const changeRole = async (id, data) => {
   try {
     const response = await axios.put(
-      `https://px-01.onrender.com/api/v1/admin/user-role/${id}`,
+      `https://px-01-1.onrender.com/api/v1/admin/user-role/${id}`,
       data,
       { withCredentials: true }
     );
@@ -55,7 +55,7 @@ export const changeRole = async (id, data) => {
 export const changeStatusOrder = async (id, data) => {
   try {
     const response = await axios.put(
-      `https://px-01.onrender.com/api/v1/admin/order/${id}`,
+      `https://px-01-1.onrender.com/api/v1/admin/order/${id}`,
       data,
       { withCredentials: true }
     );
@@ -68,7 +68,7 @@ export const changeStatusOrder = async (id, data) => {
 export const createProduct = async (product) => {
   try {
     const response = await axios.post(
-      "https://px-01.onrender.com/api/v1/admin/product/new",
+      "https://px-01-1.onrender.com/api/v1/admin/product/new",
       product,
       { withCredentials: true }
     );
@@ -81,7 +81,7 @@ export const createProduct = async (product) => {
 export const deleteProduct = async (id) => {
   try {
     const response = await axios.delete(
-      `https://px-01.onrender.com/api/v1/admin/product/${id}`,
+      `https://px-01-1.onrender.com/api/v1/admin/product/${id}`,
       { withCredentials: true }
     );
     return response.data;
@@ -93,7 +93,7 @@ export const deleteProduct = async (id) => {
 export const updateProduct = async (id, product) => {
   try {
     const response = await axios.put(
-      `https://px-01.onrender.com/api/v1/admin/product/${id}`,
+      `https://px-01-1.onrender.com/api/v1/admin/product/${id}`,
       product,
       { withCredentials: true }
     );
@@ -106,7 +106,7 @@ export const updateProduct = async (id, product) => {
 export const updateUser = async (data) => {
   try {
     const response = await axios.put(
-      `https://px-01.onrender.com/api/v1/user/profile-update`,
+      `https://px-01-1.onrender.com/api/v1/user/profile-update`,
       data,
       { withCredentials: true }
     );
@@ -119,7 +119,7 @@ export const updateUser = async (data) => {
 export const addSlider = async (data) => {
   try {
     const response = await axios.post(
-      "https://px-01.onrender.com/api/v1/admin/slider",
+      "https://px-01-1.onrender.com/api/v1/admin/slider",
       data,
       { withCredentials: true }
     );
@@ -132,7 +132,7 @@ export const addSlider = async (data) => {
 export const addTestimonial = async (data) => {
   try {
     const response = await axios.post(
-      "https://px-01.onrender.com/api/v1/admin/testimonal",
+      "https://px-01-1.onrender.com/api/v1/admin/testimonal",
       data,
       { withCredentials: true }
     );
@@ -145,7 +145,7 @@ export const addTestimonial = async (data) => {
 export const addBanner = async (data) => {
   try {
     const response = await axios.post(
-      "https://px-01.onrender.com/api/v1/admin/banner",
+      "https://px-01-1.onrender.com/api/v1/admin/banner",
       data,
       { withCredentials: true }
     );
@@ -158,7 +158,7 @@ export const addBanner = async (data) => {
 export const deleteBanner = async (id) => {
   try {
     const response = await axios.delete(
-      `https://px-01.onrender.com/api/v1/admin/banner/${id}`,
+      `https://px-01-1.onrender.com/api/v1/admin/banner/${id}`,
       { withCredentials: true }
     );
     return response.data;
@@ -170,7 +170,7 @@ export const deleteBanner = async (id) => {
 export const deleteTestimonial = async (id) => {
   try {
     const response = await axios.delete(
-      `https://px-01.onrender.com/api/v1/admin/testimonal/${id}`,
+      `https://px-01-1.onrender.com/api/v1/admin/testimonal/${id}`,
       { withCredentials: true }
     );
     return response.data;
@@ -182,7 +182,7 @@ export const deleteTestimonial = async (id) => {
 export const deleteOrder = async (id) => {
   try {
     const response = await axios.delete(
-      `https://px-01.onrender.com/api/v1/admin/order/${id}`,
+      `https://px-01-1.onrender.com/api/v1/admin/order/${id}`,
       { withCredentials: true }
     );
     return response.data;
@@ -194,7 +194,7 @@ export const deleteOrder = async (id) => {
 export const addCategory = async (data) => {
   try {
     const response = await axios.post(
-      "https://px-01.onrender.com/api/v1/admin/category/new",
+      "https://px-01-1.onrender.com/api/v1/admin/category/new",
       data,
       { withCredentials: true }
     );
@@ -207,7 +207,7 @@ export const addCategory = async (data) => {
 export const addReview = async (data) => {
   try {
     const response = await axios.put(
-      "https://px-01.onrender.com/api/v1/product/add-review",
+      "https://px-01-1.onrender.com/api/v1/product/add-review",
       data,
       { withCredentials: true }
     );
@@ -220,7 +220,7 @@ export const addReview = async (data) => {
 export const deleteTestimonialUser = async (id) => {
   try {
     const response = await axios.delete(
-      `https://px-01.onrender.com/api/v1/user/delete-testimonal/${id}`,
+      `https://px-01-1.onrender.com/api/v1/user/delete-testimonal/${id}`,
       { withCredentials: true }
     );
     return response.data;
@@ -232,7 +232,7 @@ export const deleteTestimonialUser = async (id) => {
 export const getSearchedProducts = async (search) => {
   try {
     const response = await axios.get(
-      `https://px-01.onrender.com/api/v1/products?keyword=${search}`
+      `https://px-01-1.onrender.com/api/v1/products?keyword=${search}`
     );
     return response;
   } catch (error) {
@@ -243,7 +243,7 @@ export const getSearchedProducts = async (search) => {
 export const forgetPasswordUser = async (user) => {
   try {
     const response = await axios.post(
-      "https://px-01.onrender.com/api/v1/forget-password",
+      "https://px-01-1.onrender.com/api/v1/forget-password",
       user
     );
     return response.data;
@@ -255,7 +255,7 @@ export const forgetPasswordUser = async (user) => {
 export const resetUserPassword = async (token, data) => {
   try {
     const response = await axios.put(
-      `https://px-01.onrender.com/api/v1/reset-password/${token}`,
+      `https://px-01-1.onrender.com/api/v1/reset-password/${token}`,
       data
     );
     return response.data;
@@ -267,7 +267,7 @@ export const resetUserPassword = async (token, data) => {
 export const changePassword = async (data) => {
   try {
     const response = await axios.put(
-      `https://px-01.onrender.com/api/v1/change-password`,
+      `https://px-01-1.onrender.com/api/v1/change-password`,
       data,
       { withCredentials: true }
     );
