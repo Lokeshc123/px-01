@@ -45,7 +45,7 @@ const UserSummary = ({ userData }) => {
         <div className="flex items-center justify-between border border-gray-300 p-4 rounded-md shadow-md mb-4" >
             <div className="flex items-center">
                 <img
-                    src={"https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg"}
+                    src={"https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg" || userData?.avatar?.url || "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"}
                     alt="User Avatar"
                     className="w-16 h-16 object-cover rounded-full mr-4"
                 />

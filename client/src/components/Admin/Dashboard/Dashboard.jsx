@@ -5,7 +5,9 @@ import { LineChart } from '@mui/x-charts/LineChart';
 import { getAllProucts } from '../../../helper/getData';
 
 const Dashboard = () => {
+
     const [products, setProducts] = useState([]);
+    console.log('Products:', products);
     const { user } = useContext(UserContext);
     console.log('User:', user);
     useEffect(() => {
@@ -107,10 +109,11 @@ const Dashboard = () => {
                                         src={product?.images[0]?.url}
                                         alt={product.name}
                                         className="w-20 h-20 mx-auto rounded-lg"
+                                        style={{ objectFit: 'contain' }}
                                     />
                                 </td>
                                 <td className="text-center align-middle">{product.name}</td>
-                                <td className="text-center align-middle">{product.category}</td>
+                                <td className="text-center align-middle">{product.group.category}</td>
                                 <td className="text-center align-middle">${product.price.toFixed(2)}</td>
                             </tr>
                         ))}

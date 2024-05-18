@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
 app.use(cookieParser());
 app.use(express.json());
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://incomparable-madeleine-31f187.netlify.app/",
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 };
 

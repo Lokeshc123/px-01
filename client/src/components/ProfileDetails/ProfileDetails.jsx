@@ -57,7 +57,7 @@ const ProfileDetails = ({ user }) => {
                 </Stack>
             )}
             <div className="flex items-center mb-4">
-                <img src={user?.avatar?.url} alt="User avatar" className="w-32 h-32 rounded-full object-cover" />
+                <img src={user?.avatar?.url || "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"} alt="User avatar" className="w-32 h-32 rounded-full object-cover" />
                 <label htmlFor="avatar-upload" className="bg-transparent text-primary hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary rounded-full p-2 ml-4">
                     Change Avatar
                 </label>
