@@ -14,40 +14,33 @@ const CheckoutPage = () => {
     const [country, setCountry] = useState('');
     const [currentStep, setCurrentStep] = useState(1);
     const navigate = useNavigate();
-    console.log("Cart:", cart);
+
     useEffect(() => {
         let total = 0;
-        cart.forEach((item) => (total += item.price * item.quantity));
+        cart.forEach(item => total += item.price * item.quantity);
         setTotal(total);
     }, [cart]);
 
     const handleOrderSubmit = async () => {
         try {
             console.log("Processing payment (dummy)...");
-            console.log("Shipping Address:", address, city, phoneNo, pinCode, country,
-                "Order Items:", cart, "Total Price:", total, "User:", user._id, "Payment Info: { id: 'dummy-payment-id', status: 'success' }"
-            );
-
-            // Transform cart items into orderItems format
             const orderItems = cart.map(item => ({
                 name: item.name,
-                quantity: item.quantity, // Assuming each item in the cart already has a quantity property
-
+                quantity: item.quantity,
                 price: item.price,
                 image: item?.images?.[0]?.url || "abc",
-
-                product: item._id // Assuming each item in the cart has a reference to the product
+                product: item._id
             }));
 
             const completeOrder = {
                 shippingAddress: {
-                    address: address,
-                    city: city,
-                    phoneNo: phoneNo,
-                    pinCode: pinCode,
-                    country: country
+                    address,
+                    city,
+                    phoneNo,
+                    pinCode,
+                    country
                 },
-                orderItems: orderItems, // Assign the transformed orderItems array
+                orderItems,
                 totalPrice: total,
                 user: user._id,
                 paymentInfo: {
@@ -55,20 +48,24 @@ const CheckoutPage = () => {
                     status: 'success',
                 },
             };
+
             const response = await takeOrder(completeOrder);
             console.log("Order response:", response);
-            setCart([]);
-            setCurrentStep(3);
-            alert("Order placed successfully!");
+            if (response.success) {
+                setCart([]);
+                setCurrentStep(3);
+                alert("Order placed successfully!");
+            } else {
+                throw new Error(response.error || "Order placement failed");
+            }
         } catch (error) {
             console.error("Error placing order:", error);
             alert("Error placing order. Please try again.");
         }
     };
 
-
     const handleNextStep = () => {
-        if (currentStep < 3) {
+        if (currentStep < 2) {
             setCurrentStep(currentStep + 1);
         } else {
             handleOrderSubmit();
@@ -123,9 +120,7 @@ const CheckoutPage = () => {
                             </div>
                         </form>
                         <div className="flex justify-end mt-4">
-                            {currentStep < 3 && (
-                                <button onClick={handleNextStep} className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md">Next</button>
-                            )}
+                            <button onClick={handleNextStep} className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md">Next</button>
                         </div>
                     </div>
                 )}

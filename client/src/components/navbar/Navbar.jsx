@@ -14,27 +14,33 @@ import { getUser } from '../../helper/getData';
 import { getSearchedProducts } from '../../helper/sendData';
 const Navbar = () => {
 
-    useEffect(() => {
-        const fetchDetails = async () => {
-            try {
-                const token = cookies.get('token_auth');
-                console.log('Token:', token);
-                if (token) {
-                    const decoded = jwtDecode(token);
-                    const response = await getUser(decoded.id);
-                    console.log('User details:', response.user);
-                    if (response.user.role === 'admin') {
-                        setUser(response.user);
-                        navigate('/admin');
-                    }
-                    setUser(response.user);
-                }
-            } catch (error) {
-                console.error('Token not found:', error);
-            }
-        };
-        fetchDetails();
-    }, []);
+    // useEffect(() => {
+    //     const fetchDetails = async () => {
+    //         try {
+    //             const token = cookies.get('token_auth');
+    //             console.log('Token:', token);
+    //             if (token) {
+    //                 const decoded = jwtDecode(token);
+    //                 const response = await getUser(decoded.id);
+    //                 console.log('Response:', response);
+    //                 if (response && response.user) {
+    //                     console.log('User details:', response.user);
+    //                     if (response.user.role === 'admin') {
+    //                         setUser(response.user);
+    //                         navigate('/admin');
+    //                     } else {
+    //                         setUser(response.user);
+    //                     }
+    //                 } else {
+    //                     console.error('User not found in response:', response);
+    //                 }
+    //             }
+    //         } catch (error) {
+    //             console.error('Error fetching user details:', error);
+    //         }
+    //     };
+    //     fetchDetails();
+    // }, []);
     const cookies = new Cookie();
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
