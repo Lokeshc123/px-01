@@ -4,7 +4,7 @@ const ErrorHandler = require("../utils/errorHandler");
 
 const isVerified = async (req, res, next) => {
   console.log("Cookies", req.cookies);
-  const token = req.cookies.token_auth;
+  const { token } = req.cookies;
   console.log(token);
   if (!token) {
     return next(new ErrorHandler("Login first to access this resource", 401));
