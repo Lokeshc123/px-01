@@ -16,11 +16,12 @@ app.use(bodyParser.json({ limit: "100mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
 app.use(cookieParser());
 app.use(express.json());
-app.use(
-  cors({
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: "https://incomparable-madeleine-31f187.netlify.app",
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+};
+
+app.use(cors(corsOptions));
 
 app.use("/api/v1", product);
 app.use("/api/v1", user);

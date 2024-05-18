@@ -17,8 +17,8 @@ export const login = async (user) => {
     const config = { headers: { "Content-Type": "application/json" } };
     const response = await axios.post(
       "https://px-01-1.onrender.com/api/v1/login",
-      user,
-      { withCredentials: true }
+      user
+      // { withCredentials: true }
     );
     return response.data || response;
   } catch (error) {
