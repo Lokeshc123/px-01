@@ -6,7 +6,7 @@ const connectDb = require("./config/database");
 const cloudinary = require("cloudinary");
 const exp = require("constants");
 //Configure dotenv to use the .env file
-dotenv.config({ path: "server/config/.env" });
+dotenv.config({ path: "./config/.env" });
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUD_API,

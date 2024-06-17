@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiBase = "https://px-01-1.onrender.com/api/v1";
+const apiBase = "http://localhost:5000/api/v1";
 
 const handleError = (error) => {
   console.log(error);
