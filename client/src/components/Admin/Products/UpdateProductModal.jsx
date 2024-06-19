@@ -9,11 +9,20 @@ const UpdateProductModal = ({ updateShow, setUpdateShow, id }) => {
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [stock, setStock] = useState(0);
+    const [images, setImages] = useState([]);
 
 
-    const handleImageUpload = () => {
-        document.getElementById('imageInput').click();
+    const handleImage = (e) => {
+        const file = e.target.files[0];
+        setFileToBase(file);
+    };
 
+    const setFileToBase = (file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setImages([...images, reader.result]);
+        };
     };
 
 
@@ -29,6 +38,7 @@ const UpdateProductModal = ({ updateShow, setUpdateShow, id }) => {
             description,
             category,
             stock,
+            images
 
         };
         console.log("Data", formData);
@@ -114,6 +124,36 @@ const UpdateProductModal = ({ updateShow, setUpdateShow, id }) => {
                             className="w-full border rounded-md px-3 py-2"
                             required
                         />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="imageInput">Upload Image</label>
+                        <input
+                            type="file"
+                            id="imageInput"
+                            accept="image/*" // Allow only image files
+                            onChange={handleImage}
+                            multiple // Allow multiple file selection
+                            style={{ display: 'none' }}
+                        />
+
+                        {images.length > 0 && (
+                            <div className="flex flex-wrap mt-4">
+                                {images.map((image, index) => (
+                                    <div key={index} className="mr-2 mb-2">
+                                        <img
+                                            src={image} // Use object URL for preview
+                                            alt={`Product ${index}`}
+                                            className="w-32 h-32 object-cover rounded-md"
+                                            style={{
+                                                objectFit: 'cover',
+                                                width: '100px',
+                                                height: '100px'
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     <div className="flex justify-end mt-4">

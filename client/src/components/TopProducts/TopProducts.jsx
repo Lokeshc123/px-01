@@ -55,6 +55,7 @@ const TopProducts = () => {
                 <img
                   src={data.images && data.images[0] && data.images[0].url ? data.images[0].url : ""}
                   alt=""
+                  style={{ height: '100px' }} // Set a fixed height
                   className="max-w-[140px] block mx-auto transform -translate-y-20 group-hover:scale-105 duration-300 drop-shadow-md"
                 />
               </div>

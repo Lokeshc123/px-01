@@ -68,21 +68,66 @@ const updateProduct = async (req, res, next) => {
     if (!product) {
       return next(new ErrorHandler("Product not found", 404));
     }
-    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+
+    // Separate logic for handling images and other updates
+    const updatedProductData = { ...req.body }; // Copy product data for modification
+
+    // Image handling
+    let uploadedImages = [];
+    if (req.body.images) {
+      try {
+        uploadedImages = await Promise.all(
+          req.body.images.map(async (imagePath) => {
+            const result = await cloudinary.v2.uploader.upload(imagePath, {
+              folder: "products",
+            });
+            return {
+              public_id: result.public_id,
+              url: result.secure_url,
+            };
+          })
+        );
+      } catch (error) {
+        return next(new ErrorHandler("Image upload failed", 400));
+      }
+    }
+
+    // Update product data with uploaded images (if any)
+    if (uploadedImages.length > 0) {
+      updatedProductData.images = uploadedImages; // Replace existing images or add new ones
+    } else {
+      // Handle existing images if necessary
+      // You might want to check for a flag or additional information in req.body
+      // to determine how to handle existing images (keep, delete, etc.)
+      // For example:
+      // if (req.body.keepExistingImages) {
+      //   updatedProductData.images = product.images; // Keep existing images
+      // }
+    }
+
+    // Update product using Product.findByIdAndUpdate
+    product = await Product.findByIdAndUpdate(
+      req.params.id,
+      updatedProductData,
+      {
+        new: true, // Return the updated product
+        runValidators: true, // Validate updated data
+      }
+    );
+
+    if (!product) {
+      return next(new ErrorHandler("Product update failed", 500));
+    }
+
     res.status(200).json({
       success: true,
       product,
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Server Error",
-    });
+    next(error); // Pass error to the next middleware
   }
 };
+
 const deleteProduct = async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.id);

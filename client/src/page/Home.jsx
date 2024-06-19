@@ -11,6 +11,7 @@ import Testimonials from '../components/Testimonial/Testimonial';
 import { getUser } from '../helper/getData';
 import Cookies from 'universal-cookie';
 import { UserContext } from '../context/Context';
+import Footer from '../components/Footer';
 const Home = () => {
     const cookies = new Cookies();
     const { user, setUser } = React.useContext(UserContext);
@@ -33,6 +34,7 @@ const Home = () => {
             <TopProducts />
             <Banner />
             <Testimonials />
+            <Footer />
         </div>
     )
 }

@@ -40,12 +40,16 @@ const UserSummary = ({ userData }) => {
             }
         }
     };
+    let avatar = userData.avatar.url;
+    if (userData.avatar.url === "url") {
+        avatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQttE9sxpEu1EoZgU2lUF_HtygNLCaz2rZYHg&s"
+    }
 
     return (
         <div className="flex items-center justify-between border border-gray-300 p-4 rounded-md shadow-md mb-4" >
             <div className="flex items-center">
                 <img
-                    src={"https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg" || userData?.avatar?.url || "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"}
+                    src={avatar}
                     alt="User Avatar"
                     className="w-16 h-16 object-cover rounded-full mr-4"
                 />

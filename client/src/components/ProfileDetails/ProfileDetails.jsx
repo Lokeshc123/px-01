@@ -46,6 +46,11 @@ const ProfileDetails = ({ user }) => {
         setAlertMessage(messageDetails);
         setShowAlert(true);
     };
+    console.log(user);
+    let avatar = user.avatar.url;
+    if (user?.avatar?.url === "url") {
+        avatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQttE9sxpEu1EoZgU2lUF_HtygNLCaz2rZYHg&s"
+    }
 
     return (
         <div className="flex flex-col space-y-4">
@@ -57,7 +62,7 @@ const ProfileDetails = ({ user }) => {
                 </Stack>
             )}
             <div className="flex items-center mb-4">
-                <img src={user?.avatar?.url || "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"} alt="User avatar" className="w-32 h-32 rounded-full object-cover" />
+                <img src={avatar} alt="User avatar" className="w-32 h-32 rounded-full object-cover" />
                 <label htmlFor="avatar-upload" className="bg-transparent text-primary hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary rounded-full p-2 ml-4">
                     Change Avatar
                 </label>

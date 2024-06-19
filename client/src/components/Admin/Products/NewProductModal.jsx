@@ -194,7 +194,7 @@ const NewProductModal = ({ show, setShow, setProducts }) => {
                             style={{ display: 'none' }}
                         />
 
-                        {/* {images.length > 0 && (
+                        {images.length > 0 && (
                             <div className="flex flex-wrap mt-4">
                                 {images.map((image, index) => (
                                     <div key={index} className="mr-2 mb-2">
@@ -202,11 +202,16 @@ const NewProductModal = ({ show, setShow, setProducts }) => {
                                             src={image} // Use object URL for preview
                                             alt={`Product ${index}`}
                                             className="w-32 h-32 object-cover rounded-md"
+                                            style={{
+                                                objectFit: 'cover',
+                                                width: '100px',
+                                                height: '100px'
+                                            }}
                                         />
                                     </div>
                                 ))}
                             </div>
-                        )} */}
+                        )}
                     </div>
                     <div className="flex justify-end mt-4">
                         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">
