@@ -131,16 +131,16 @@ const CheckoutPage = () => {
                         <form>
                             <div className="mb-4">
                                 <label htmlFor="cardNumber" className="block text-gray-700 font-bold mb-2">Card Number</label>
-                                <input type="text" id="cardNumber" name="cardNumber" placeholder="**** **** **** ****" className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-green-500" disabled />
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="**** **** **** ****" className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-green-500" />
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                 <div>
                                     <label htmlFor="expiryDate" className="block text-gray-700 font-bold mb-2">Expiry Date (MM/YY)</label>
-                                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-green-500" disabled />
+                                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-green-500" />
                                 </div>
                                 <div>
                                     <label htmlFor="cvv" className="block text-gray-700 font-bold mb-2">CVV</label>
-                                    <input type="text" id="cvv" name="cvv" placeholder="***" className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-green-500" disabled />
+                                    <input type="text" id="cvv" name="cvv" placeholder="***" className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-green-500" />
                                 </div>
                             </div>
                         </form>

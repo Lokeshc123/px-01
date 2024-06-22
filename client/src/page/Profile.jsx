@@ -3,16 +3,22 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../context/Context';
 import Navbar from '../components/navbar/Navbar'; // Assuming your existing Navbar component
 import ProfileDetails from '../components/ProfileDetails/ProfileDetails';
-import { getAllReviews, getMyOrders, getMyTestimonials, getallTestimonial } from '../helper/getData';
+import { getAllReviews, getMyOrders, getMyTestimonials, getUser, getallTestimonial } from '../helper/getData';
 import OrderCard from '../components/OrderCard/OrderCard';
 import Cookies from 'universal-cookie';
 import MyOrders from '../components/OrderCard/MyOrders';
 import ReviewCard from '../components/Review/ReviewCard';
 import TestimonialModal from '../components/Admin/Display/TestimonialModal';
 import { TestimonialCard } from '../components/Admin/Display/Cards';
-import { set } from 'mongoose';
+
+import { BiUserCircle } from 'react-icons/bi';
+import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
+
 
 const Profile = () => {
+    const cookies = new Cookies();
+    const navigate = useNavigate();
     const handleLogout = () => {
         const cookies = new Cookies();
         cookies.remove('token_auth'); // Ensure removal of token_auth cookie
@@ -25,6 +31,7 @@ const Profile = () => {
     const [showTestimonialModal, setShowTestimonialModal] = useState(false);
 
     const { user, setUser } = useContext(UserContext);
+
     const [reviews, setReviews] = useState([]); // Initial reviews state
 
     const [selectedOption, setSelectedOption] = useState('my-details'); // Initial selected option

@@ -2,13 +2,12 @@ import React from 'react';
 import { IoMdClose } from 'react-icons/io';
 
 const OrderDetailsModal = ({ order, setShow }) => {
-    // Function to format date in DD/MM/YY format
+
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-GB');
     };
 
-    // Function to format time in 12-hour format
     const formatTime = (timeString) => {
         const time = new Date(timeString);
         return time.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
@@ -16,7 +15,7 @@ const OrderDetailsModal = ({ order, setShow }) => {
 
     return (
         <div className="fixed inset-0 flex justify-center items-center bg-opacity-50 backdrop-blur-sm">
-            <div className="bg-white p-8 rounded-lg w-full max-w-lg">
+            <div className="bg-white p-8 rounded-lg w-full max-w-lg max-h-[80vh] mt-12 overflow-y-auto">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-lg font-bold">Order Details</h2>
                     <IoMdClose className="cursor-pointer" onClick={() => setShow(false)} />

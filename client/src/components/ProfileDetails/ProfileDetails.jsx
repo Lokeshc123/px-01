@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import { updateUser } from '../../helper/sendData';
 import ChangePassword from '../../page/modal/ChangePassword';
+import { UserContext } from '../../context/Context';
 
 
-const ProfileDetails = ({ user }) => {
+const ProfileDetails = () => {
+    const { user } = useContext(UserContext);
     const [name, setName] = useState(user?.name || "Login Please");
     const [email, setEmail] = useState(user?.email || "Login Please");
     const [images, setImages] = useState();
@@ -47,9 +49,9 @@ const ProfileDetails = ({ user }) => {
         setShowAlert(true);
     };
     console.log(user);
-    let avatar = user.avatar.url;
+
     if (user?.avatar?.url === "url") {
-        avatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQttE9sxpEu1EoZgU2lUF_HtygNLCaz2rZYHg&s"
+        user.avatar.url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQttE9sxpEu1EoZgU2lUF_HtygNLCaz2rZYHg&s"
     }
 
     return (
@@ -62,7 +64,7 @@ const ProfileDetails = ({ user }) => {
                 </Stack>
             )}
             <div className="flex items-center mb-4">
-                <img src={avatar} alt="User avatar" className="w-32 h-32 rounded-full object-cover" />
+                <img src={user?.avatar?.url} alt="User avatar" className="w-32 h-32 rounded-full object-cover" />
                 <label htmlFor="avatar-upload" className="bg-transparent text-primary hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary rounded-full p-2 ml-4">
                     Change Avatar
                 </label>
